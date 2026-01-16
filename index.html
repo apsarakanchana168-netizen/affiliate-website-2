@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dressmo – Elegant Wedding Fashion</title>
+  <meta name="description" content="Discover your dream wedding look with Dressmo's curated dresses & accessories for unforgettable moments.">
+  <meta property="og:title" content="Dressmo – Elegant Wedding Fashion">
+  <meta property="og:description" content="Discover your dream wedding look with Dressmo's curated dresses & accessories for unforgettable moments.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1502727135906-9f8b4b6e0b8b">
+  <meta property="og:url" content="https://dressmo.com">
+  <meta name="p:domain_verify" content="dressmo">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --white: #ffffff;
+      --blush: #f8e6e8;
+      --gold: #d4af37;
+      --dark: #333333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--white);
+      box-shadow: 0 2px 6px rgba(0,0,0,.05);
+      z-index: 1000;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark);
+      position: relative;
+    }
+    .logo::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: var(--gold);
+    }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    nav a {
+      font-weight: 500;
+      transition: color .3s;
+    }
+    nav a:hover {
+      color: var(--gold);
+    }
+    .social-header {
+      display: flex;
+      gap: 1rem;
+    }
+    .social-header a {
+      font-size: 1.2rem;
+      color: var(--dark);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--dark);
+      border-radius: 2px;
+    }
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1502727135906-9f8b4b6e0b8b') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.35);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 0 1rem;
+      animation: fadeIn 1.2s ease;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      background: var(--gold);
+      color: var(--white);
+      padding: .9rem 2.2rem;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: background .3s;
+    }
+    .btn:hover {
+      background: #b8972e;
+    }
+    .section {
+      padding: 4rem 0;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .section-intro {
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .grid-4 {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .product-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+      transition: transform .3s;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+    }
+    .product-card img {
+      height: 320px;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 1rem 1.2rem 1.4rem;
+    }
+    .product-title {
+      font-size: 1.1rem;
+      margin-bottom: .5rem;
+    }
+    .product-desc {
+      font-size: .9rem;
+      color: #666;
+      margin-bottom: .6rem;
+    }
+    .price {
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .btn-small {
+      background: var(--gold);
+      color: var(--white);
+      padding: .5rem 1rem;
+      border-radius: 20px;
+      font-size: .85rem;
+    }
+    .social-share {
+      display: flex;
+      gap: .6rem;
+    }
+    .social-share a {
+      font-size: 1.1rem;
+      color: var(--dark);
+    }
+    footer {
+      background: var(--blush);
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+    footer .logo {
+      display: inline-block;
+      margin-bottom: .5rem;
+    }
+    footer p {
+      font-size: .9rem;
+      margin-bottom: 1rem;
+    }
+    footer .social-footer {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    footer .social-footer a {
+      font-size: 1.3rem;
+      color: var(--dark);
+    }
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    footer .footer-links a {
+      font-size: .9rem;
+    }
+    .disclosure {
+      font-size: .8rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,.05);
+        display: none;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">Dressmo</div>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#wedding-dresses">Wedding Dresses</a></li>
+          <li><a href="#wedding-guest">Wedding Guest</a></li>
+          <li><a href="#accessories">Accessories</a></li>
+          <li><a href="#shoes">Shoes</a></li>
+          <li><a href="#party">Party</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="social-header">
+        <a href="https://pinterest.com/dressmo" target="_blank"><i class="fab fa-pinterest"></i></a>
+        <a href="https://instagram.com/dressmo" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Discover Your Dream Wedding Look</h1>
+      <p>Curated dresses & accessories for unforgettable moments</p>
+      <a href="#wedding-dresses" class="btn">Shop Wedding Dresses</a>
+    </div>
+  </section>
+
+  <section id="wedding-dresses" class="section">
+    <div class="container">
+      <h2 class="section-title">Wedding Dresses</h2>
+      <p class="section-intro">Timeless gowns crafted for your forever moment, from classic silhouettes to modern romance.</p>
+      <div class="grid grid-4">
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1502716119720-b23a93e3a4c3" alt="Elegant white lace wedding dress with long train">
+          <div class="product-info">
+            <h3 class="product-title">Lace Serenity Gown</h3>
+            <p class="product-desc">Hand-sewn lace appliqués cascade into a dramatic train.</p>
+            <div class="price">$480 – $1,200</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08XYZ1234" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1560891833-f78f0a9f378c" alt="Minimalist satin wedding dress with open back">
+          <div class="product-info">
+            <h3 class="product-title">Silk Minimalist Slip</h3>
+            <p class="product-desc">Clean lines and luxurious satin for the modern bride.</p>
+            <div class="price">$320 – $890</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08XYZ5678" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1522053954355-4f6c8e1c2b0f" alt="Boho wedding dress with floral embroidery">
+          <div class="product-info">
+            <h3 class="product-title">Boho Blossom Dress</h3>
+            <p class="product-desc">Embroidered florals float over airy tulle for garden vows.</p>
+            <div class="price">$420 – $1,050</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08XYZABCD" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" alt="Princess ball gown wedding dress">
+          <div class="product-info">
+            <h3 class="product-title">Royal Ball Gown</h3>
+            <p class="product-desc">Fairytale layers and crystal-beaded bodice for grand entrances.</p>
+            <div class="price">$650 – $1,800</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08XYZEF12" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1515934751635-481eff0427b2" alt="Beach wedding dress with light chiffon">
+          <div class="product-info">
+            <h3 class="product-title">Ocean Breeze Chiffon</h3>
+            <p class="product-desc">Lightweight chiffon moves effortlessly with seaside vows.</p>
+            <div class="price">$280 – $720</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08XYZ3456" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45f" alt="Vintage inspired wedding dress with long sleeves">
+          <div class="product-info">
+            <h3 class="product-title">Vintage Lace Sleeves</h3>
+            <p class="product-desc">High neckline and delicate buttons for timeless charm.</p>
+            <div class="price">$380 – $950</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08XYZ7890" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1502715006953-f3a1c4a9575d" alt="Mermaid wedding dress with sparkle">
+          <div class="product-info">
+            <h3 class="product-title">Glimmering Mermaid</h3>
+            <p class="product-desc">Sequin fabric hugs and flares for red-carpet drama.</p>
+            <div class="price">$520 – $1,300</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08XYZAB98" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1561489396-8a7581350df4" alt="Short wedding dress for civil ceremony">
+          <div class="product-info">
+            <h3 class="product-title">City Hall Mini</h3>
+            <p class="product-desc">Chic tea-length dress for intimate celebrations.</p>
+            <div class="price">$180 – $450</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08XYZ5679" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="wedding-guest" class="section">
+    <div class="container">
+      <h2 class="section-title">Wedding Guest Dresses</h2>
+      <p class="section-intro">Celebrate love in style with elegant dresses perfect for every dress code.</p>
+      <div class="grid grid-4">
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1" alt="Dusty blue midi dress for wedding guest">
+          <div class="product-info">
+            <h3 class="product-title">Dusty Blue Midi</h3>
+            <p class="product-desc">Soft pleats and flutter sleeves for garden ceremonies.</p>
+            <div class="price">$89 – $140</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08GUEST123" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8" alt="Emerald green satin slip dress">
+          <div class="product-info">
+            <h3 class="product-title">Emerald Satin Slip</h3>
+            <p class="product-desc">Bias-cut silk skims beautifully for evening receptions.</p>
+            <div class="price">$120 – $190</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08GUEST456" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1" alt="Floral maxi dress with wrap front">
+          <div class="product-info">
+            <h3 class="product-title">Blooming Wrap Maxi</h3>
+            <p class="product-desc">Romantic florals and adjustable waist for every body.</p>
+            <div class="price">$95 – $155</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08GUEST789" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1602212016066-dd237d8a4b8f" alt="Cocktail dress with feather details">
+          <div class="product-info">
+            <h3 class="product-title">Midnight Feather Cocktail</h3>
+            <p class="product-desc">Playful feathers add movement to black-tie celebrations.</p>
+            <div class="price">$140 – $220</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08GUESTABC" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1" alt="Coral off-shoulder dress">
+          <div class="product-info">
+            <h3 class="product-title">Coral Off-Shoulder</h3>
+            <p class="product-desc">Sunset hues and ruffled neckline for summer vows.</p>
+            <div class="price">$85 – $130</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08GUESTDEF" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03" alt="Navy sequin evening gown">
+          <div class="product-info">
+            <h3 class="product-title">Navy Sequin Column</h3>
+            <p class="product-desc">All-over sequins catch the light as you dance.</p>
+            <div class="price">$160 – $250</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08GUESTGHI" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c" alt="Lavender tulle dress">
+          <div class="product-info">
+            <h3 class="product-title">Lavender Tulle Dream</h3>
+            <p class="product-desc">Whimsical layers add fairy-tale charm to daytime weddings.</p>
+            <div class="price">$110 – $175</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08GUESTJKL" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256" alt="Terracotta wrap mini dress">
+          <div class="product-info">
+            <h3 class="product-title">Terracotta Wrap Mini</h3>
+            <p class="product-desc">Flirty length and warm tones for autumn celebrations.</p>
+            <div class="price">$75 – $120</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08GUESTMNO" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="accessories" class="section">
+    <div class="container">
+      <h2 class="section-title">Accessories</h2>
+      <p class="section-intro">Elevate your ensemble with sparkling tiaras, delicate veils, and heirloom-worthy jewelry.</p>
+      <div class="grid grid-4">
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1525448191402-28658e6f79ac" alt="Crystal bridal tiara">
+          <div class="product-info">
+            <h3 class="product-title">Crystal Vine Tiara</h3>
+            <p class="product-desc">Hand-set crystals branch into a nature-inspired crown.</p>
+            <div class="price">$58 – $120</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08ACC123" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45f" alt="Cathedral length wedding veil">
+          <div class="product-info">
+            <h3 class="product-title">Cathedral Lace Veil</h3>
+            <p class="product-desc">Hand-cut lace edges frame the train in timeless elegance.</p>
+            <div class="price">$89 – $180</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08ACC456" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338" alt="Pearl drop wedding earrings">
+          <div class="product-info">
+            <h3 class="product-title">Pearl Drop Earrings</h3>
+            <p class="product-desc">Freshwater pearls dangle from delicate gold settings.</p>
+            <div class="price">$42 – $85</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08ACC789" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e" alt="Crystal bridal clutch">
+          <div class="product-info">
+            <h3 class="product-title">Crystal Clutch Purse</h3>
+            <p class="product-desc">Sparkling clasp and silky interior for essentials.</p>
+            <div class="price">$65 – $130</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08ACCABC" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1537724326052-196f63a6e3a4" alt="Silk ribbon bridal sash">
+          <div class="product-info">
+            <h3 class="product-title">Silk Ribbon Sash</h3>
+            <p class="product-desc">Soft blush ribbon cinches the waist with grace.</p>
+            <div class="price">$35 – $70</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08ACCDEF" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1" alt="Vintage hair comb with pearls">
+          <div class="product-info">
+            <h3 class="product-title">Pearl Hair Comb</h3>
+            <p class="product-desc">Art-deco inspired pearls nestle elegantly in updos.</p>
+            <div class="price">$48 – $95</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08ACC1234" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1576053139628-4d35b61ae935" alt="Silver anklet with star charms">
+          <div class="product-info">
+            <h3 class="product-title">Starlight Anklet</h3>
+            <p class="product-desc">Delicate stars sparkle with each step down the aisle.</p>
+            <div class="price">$28 – $55</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08ACC5678" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1590736969955-71cc94900124" alt="Bridal robe getting ready">
+          <div class="product-info">
+            <h3 class="product-title">Lace Bridal Robe</h3>
+            <p class="product-desc">Soft lace for picture-perfect getting-ready moments.</p>
+            <div class="price">$55 – $110</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08ACC9012" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shoes" class="section">
+    <div class="container">
+      <h2 class="section-title">Shoes</h2>
+      <p class="section-intro">Step into forever with crystal-embellished heels, satin pumps, and dance-ready flats.</p>
+      <div class="grid grid-4">
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c" alt="Crystal embellished bridal heels">
+          <div class="product-info">
+            <h3 class="product-title">Crystal Stiletto Heels</h3>
+            <p class="product-desc">Sparkling crystals line the straps for aisle-worthy shine.</p>
+            <div class="price">$120 – $240</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08SHO123" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2" alt="White satin bridal pumps">
+          <div class="product-info">
+            <h3 class="product-title">Satin Pointed Pumps</h3>
+            <p class="product-desc">Classic ivory satin with comfortable low heel.</p>
+            <div class="price">$90 – $160</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08SHO456" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a" alt="Pearl embellished ballet flats">
+          <div class="product-info">
+            <h3 class="product-title">Pearl Ballet Flats</h3>
+            <p class="product-desc">Dance all night in cushioned flats adorned with pearls.</p>
+            <div class="price">$75 – $130</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08SHO789" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1595341674818-3da8206b9969" alt="Strappy gold wedding heels">
+          <div class="product-info">
+            <h3 class="product-title">Gold Strappy Heels</h3>
+            <p class="product-desc">Metallic straps wrap elegantly for a modern touch.</p>
+            <div class="price">$110 – $190</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08SHOABC" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772" alt="White satin bridal sneakers">
+          <div class="product-info">
+            <h3 class="product-title">Satin Bridal Sneakers</h3>
+            <p class="product-desc">Comfort meets style for the dance-floor-loving bride.</p>
+            <div class="price">$65 – $110</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08SHODEF" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1608231387042-5d2c7eca6c8a" alt="Lace bridal ankle boots">
+          <div class="product-info">
+            <h3 class="product-title">Lace Ankle Boots</h3>
+            <p class="product-desc">Boho lace boots for rustic vineyard celebrations.</p>
+            <div class="price">$95 – $160</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08SHOGHI" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa" alt="Silver glitter wedding heels">
+          <div class="product-info">
+            <h3 class="product-title">Silver Glitter Heels</h3>
+            <p class="product-desc">Full glitter finish for disco-ball sparkle at the reception.</p>
+            <div class="price">$100 – $170</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08SHOJKL" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1620421680380-8a92ce67e42f" alt="Nude block heel sandals">
+          <div class="product-info">
+            <h3 class="product-title">Nude Block Heels</h3>
+            <p class="product-desc">Stable block heel keeps you comfortable all day.</p>
+            <div class="price">$85 – $140</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08SHOMNO" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="party" class="section">
+    <div class="container">
+      <h2 class="section-title">Party Dresses</h2>
+      <p class="section-intro">Turn heads at every soirée with sequins, satin, and statement silhouettes.</p>
+      <div class="grid grid-4">
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1539008835657-9e8b964867c6" alt="Sequin mini party dress">
+          <div class="product-info">
+            <h3 class="product-title">Gold Sequin Mini</h3>
+            <p class="product-desc">All-over sequins catch every flash and spotlight.</p>
+            <div class="price">$95 – $160</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08PTY123" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1595777457583-644a1f56a55c" alt="Red satin party dress">
+          <div class="product-info">
+            <h3 class="product-title">Scarlet Satin Bias</h3>
+            <p class="product-desc">Liquid satin skims curves for ultimate drama.</p>
+            <div class="price">$110 – $180</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08PTY456" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1" alt="Black velvet party dress">
+          <div class="product-info">
+            <h3 class="product-title">Velvet Wrap Midi</h3>
+            <p class="product-desc">Deep velvet and side slit for holiday glamour.</p>
+            <div class="price">$88 – $145</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08PTY789" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1602212016066-dd237d8a4b8f" alt="Feather trim mini dress">
+          <div class="product-info">
+            <h3 class="product-title">Feather Trim Mini</h3>
+            <p class="product-desc">Playful feathers sway with every dance move.</p>
+            <div class="price">$125 – $200</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08PTYABC" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1595777457583-8a2e5f55e8b8" alt="Emerald green party dress">
+          <div class="product-info">
+            <h3 class="product-title">Emerald One-Shoulder</h3>
+            <p class="product-desc">Bold color and asymmetrical neckline steal the show.</p>
+            <div class="price">$105 – $170</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08PTYDEF" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1" alt="Polka dot party dress">
+          <div class="product-info">
+            <h3 class="product-title">Polka Dot Wrap</h3>
+            <p class="product-desc">Retro dots and tie waist for playful elegance.</p>
+            <div class="price">$78 – $125</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08PTYGHI" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1595341945025-f0676a3b717d" alt="Cocktail dress with sequin top">
+          <div class="product-info">
+            <h3 class="product-title">Sequin & Chiffon Mix</h3>
+            <p class="product-desc">Sparkling bodice flows into airy chiffon skirt.</p>
+            <div class="price">$118 – $185</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08PTYJKL" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256" alt="Coral party dress">
+          <div class="product-info">
+            <h3 class="product-title">Coral Ruffle Mini</h3>
+            <p class="product-desc">Tiered ruffles bring movement and tropical vibes.</p>
+            <div class="price">$82 – $135</div>
+            <div class="actions">
+              <a href="https://amazon.com/dp/B08PTYMNO" class="btn-small" target="_blank">Shop Now</a>
+              <div class="social-share">
+                <a href="https://pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-custom="true"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title">Contact</h2>
+      <p>Have questions? Reach us at <a href="mailto:hello@dressmo.com">hello@dressmo.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo">Dressmo</div>
+    <p>Where Every Wedding Look Begins</p>
+    <div class="social-footer">
+      <a href="https://pinterest.com/dressmo" target="_blank"><i class="fab fa-pinterest"></i></a>
+      <a href="https://instagram.com/dressmo" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/dressmo" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://tiktok.com/@dressmo" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <div class="footer-links">
+      <a href="#wedding-dresses">Wedding Dresses</a>
+      <a href="#wedding-guest">Wedding Guest</a>
+      <a href="#accessories">Accessories</a>
+      <a href="#shoes">Shoes</a>
+      <a href="#party">Party Dresses</a>
+    </div>
+    <div class="disclosure">
+      Dressmo is a participant in the Amazon Associates Program, an affiliate advertising program designed to provide a means for sites to earn commissions.
+    </div>
+    <p style="font-size: .8rem; color:#666;">© 2026 Dressmo</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.style.boxShadow = '0 4px 10px rgba(0,0,0,.08)';
+      } else {
+        header.style.boxShadow = '0 2px 6px rgba(0,0,0,.05)';
+      }
+    });
+  </script>
+  <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+</body>
+</html>
